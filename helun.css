@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root{
+   --text-color:#222;
+   --subheading-color:#a0a0a0;
+   --placeholder-color:#6c6c6c;
+   --primary-color:#fff;
+   --secondary-color:#E9EEF6;
+   --secondary-hover-color:white;
+   --input-bg:#fff;
+   --chat-bg:#f1f1f1;
+   --chat-border:#dedede;
+   --output-bg:#ddd;
+   --output-border:#ccc;
+}
+body.dark{
+    --text-color:#f1f1f1;
+    --subheading-color:#bbbbbb;
+    --placeholder-color:#999;
+    --primary-color:#121212;
+    --secondary-color:#1f1f1f;
+    --secondary-hover-color:#2a2a2a;
+    --input-bg:#2a2a2a;
+    --chat-bg:#1e90ff; /*chat back*/
+    --chat-border:#333;
+    --output-bg:#2a2a2a;
+    --output-border:#444;
+
+}
+
+body{
+    background: var(--primary-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.header{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-top: 25%;
+
+}
+.header .title{
+    margin: auto;
+    width: 600px;
+    font-weight: 200;
+    font-size: 48px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.gemini{
+    
+ 
+
+padding: 0.1em 0.3em;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+
+  background:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Night sky gradient */
+
+  background-size: 20px 20px, 40px 40px, cover;
+  background-position: 0 0, 10px 10px, center;
+  background-repeat: repeat;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+   
+ font-family: 'Playfair Display', serif;
+font-style: italic;
+
+
+    }
+
+
+
+.typing-area{
+    width: 100%;
+    margin: auto;
+    margin-top: 200px;
+    position: fixed;
+    bottom:50px;
+    display: flex;
+    justify-content: center;
+}
+.input-wrapper{
+    border: 1px solid var(--text-color);
+    padding: .5rem;
+    border-radius: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.input-wrapper input{
+    width:40vw;
+    height: 40px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+.input-wrapper input:focus{
+    border:none;
+}
+#send-message-button{
+    border: none;
+    background-color: #efefef;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.chat-area{
+    width: 600px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+/* Chat container */
+#chatArea {
+    height: calc(100vh - 120px); /* Adjust for header + input height */
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 100px; /* Prevent last message from being hidden behind input */
+    display: flex;
+    flex-direction: column;
+}
+
+#chatArea {
+    /* Ensure scrolling still works */
+    overflow-y: auto;
+
+    /* Hide scrollbar for Chrome, Safari and Edge */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE 10+ */
+}
+
+#chatArea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+
+
+
+/* Input section fixed at bottom */
+.input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 8px;
+}
+
+
+
+
+
+.chat{
+    background-color: var(--chat-bg);
+    border: 2px solid var(--chat-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+.output{
+    border-color: var(--output-border);
+    background-color: var(--output-bg);
+}
+
+
+
+.user{
+    align-self: flex-end;
+}
+.Gemini{
+    align-self: flex-start;
+}
+
+@keyframes transition{
+
+    from{
+        opacity:0;
+        transform: translateY(10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.message{
+    animation: transition 0.7s ease forwards;
+    background-color: var(--chat-bg); /*msg color change with that */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 15px;
+}
+.loading{
+    animation: transition 0.7s ease forwards;
+    background-color: #efefef;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 15px;
+}
+.theme-toggle{
+
+    background: none;
+    background-color: #efefef;
+    font-size: 1.5rem;
+    border: none;
+cursor: pointer;
+margin-left: 10px;
+border-radius: 50%;
+padding: 10px;
+box-sizing: border-box;
+
+}
+.timestamp {
+    display: block;
+    font-size: 0.75rem;
+    color: gray;
+    margin-top: 4px;
+}
